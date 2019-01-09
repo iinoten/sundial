@@ -21,11 +21,16 @@ componentDidMount () {
 }
 
   render(){
+    var style = {
+      top: this.state.pos_x.toString() + "vh",
+      left: this.state.pos_y.toString() + "vw" 
+    }
     return(
       <div>
         <div>x値：{this.state.pos_x}</div>
         <div>y値：{this.state.pos_y}</div>
         <div>z値：{this.state.pos_z}</div>
+        <div className="test" style={style}>move</div>
       </div>
     );
   }
