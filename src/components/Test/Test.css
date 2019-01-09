@@ -1,3 +1,8 @@
 .test {
-  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-top: 6px solid #3B0B2E;
+  border-right:6px solid #3B0B2E;
+  margin: auto;
+  margin-top: 20px;
 }

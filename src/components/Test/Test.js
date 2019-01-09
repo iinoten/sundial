@@ -4,9 +4,9 @@ import './Test.css'
 
 class Test extends Component{
   state = {
-    pos_x: 0,
-    pos_y: 0,
-    pos_z: 0,
+    pos_x: 1,
+    pos_y: 1,
+    pos_z: 1,
 };
 
 componentDidMount () {
@@ -22,15 +22,14 @@ componentDidMount () {
 
   render(){
     var style = {
-      top: this.state.pos_x.toString() + "vh",
-      left: this.state.pos_y.toString() + "vw" 
+      transform: "rotate(" + this.state.pos_z + "deg)"
     }
     return(
       <div>
         <div>x値：{this.state.pos_x}</div>
         <div>y値：{this.state.pos_y}</div>
         <div>z値：{this.state.pos_z}</div>
-        <div className="test" style={style}>move</div>
+        <div className="test" style={style}></div>
       </div>
     );
   }
