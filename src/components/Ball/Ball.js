@@ -12,12 +12,29 @@ class Ball extends Component{
     state_left: 0
   };
 
-  increment() {
-    this.setState((prev) => {
-      return {
-        state_bottom: prev.count + 2
-      }
-    })
+  move(){
+  //縦方向の転がしモーション
+    if( this.state.pos_x <= -10 && -80 <= this.state.pos_x ){
+      this.setState({
+        state_bottom: this.state.state_bottom + 3
+      });
+      console.log("katatata");
+    } else if( this.state.pos_x >= 10 && 80 >= this.state.pos_x ) {
+      this.setState({
+        state_bottom: this.state.state_bottom - 3
+      });
+      console.log("katamuki");
+    }
+  //横方向の動きモーション
+    if( this.state.pos_y >= 10 && 60 >= this.state.pos_y ) {
+      this.setState({
+        state_left: this.state.state_left + 3
+      });
+    } else if( this.state.pos_y <= -10 && -80 <= this.state.pos_y ) {
+      this.setState({
+        state_left: this.state.state_left - 3
+      });
+    }
   }
 
   componentDidMount () {
@@ -28,19 +45,15 @@ class Ball extends Component{
             pos_y: event.gamma,
             pos_z: event.alpha
         });
-        if( this.state.pos_x <= -10 && -80 <= this.state.pos_x ){
-          this.setState({
-            state_bottom: this.state.state_bottom + 1
-          })
-        }
-        console.log(this.state.state_bottom);
-        console.log(this.state.pos_x);
+        console.log("Y:",this.state.state_left+"px");
     });
+    this.interval = setInterval(() => this.move(), 1);  //1時間毎にstate内の時間を更新
   }
 
   render(){
     var style = {
-      bottom: this.state.state_bottom
+      bottom: this.state.state_bottom + "px",
+      left: this.state.state_left + "px"
     }
     return(
       <div className="ball" style={style}></div>
