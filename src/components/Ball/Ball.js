@@ -14,25 +14,25 @@ class Ball extends Component{
 
   move(){
   //縦方向の転がしモーション
-    if( this.state.pos_x <= -10 && -80 <= this.state.pos_x && (window.parent.screen.height-100) >= this.state.state_bottom ){
+    if( this.state.pos_x <= -5 && -80 <= this.state.pos_x && (window.parent.screen.height-100) >= this.state.state_bottom ){
       this.setState({
         state_bottom: this.state.state_bottom + 3
       });
       console.log("katatata");
-    } else if( this.state.pos_x >= 10 && 80 >= this.state.pos_x && 0 <= this.state.state_bottom ) {
+    } else if( this.state.pos_x >= 5 && 80 >= this.state.pos_x && 0 <= this.state.state_bottom ) {
       this.setState({
         state_bottom: this.state.state_bottom - 3
       });
       console.log("katamuki");
     }
   //横方向の動きモーション
-    if( this.state.pos_y >= 10 && 60 >= this.state.pos_y && (window.parent.screen.width-100) >= this.state.state_left ) {
+    if( this.state.pos_y >= 5 && 60 >= this.state.pos_y && (window.parent.screen.width-100) >= this.state.state_left ) {
       this.setState({
         state_left: this.state.state_left + 3
       });
-    } else if( this.state.pos_y <= -10 && -80 <= this.state.pos_y && 0 <= this.state.state_left ) {
+    } else if( this.state.pos_y <= -5 && -80 <= this.state.pos_y && 0 <= this.state.state_left ) {
       this.setState({
-        state_left: this.state.state_left - 3
+        state_left: this.state.state_left - 4
       });
     }
   }
